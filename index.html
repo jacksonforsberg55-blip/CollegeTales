@@ -175,7 +175,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
           <div class="player">
             <button class="playbtn">▶</button>
             <div class="track">
-              <div class="track-name" id="vm-title-disp">Copy link to access voicemail https://youtu.be/QQBrZcvftc8</div>
+              <div class="track-name" id="vm-title-disp">voicemail_oct14.m4a</div>
               <div class="track-sub" id="vm-sub-disp">Jonah Johnson · 2:34</div>
               <div class="pbar"><div class="pfill" style="width:35%"></div></div>
             </div>
@@ -301,7 +301,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
           <div class="fvid">
             <div class="fvid-bg" id="jv-bg" style="background:linear-gradient(135deg,#1a1a2e,#0f3460);">
               <div class="fvid-play">▶</div>
-              <div class="fvid-lbl" id="jv-lbl">Campus Security Interview — Jake Simone<br>Room 114 · Admin Building · Sept 2023 Copy this link to access interview- https://www.youtube.com/watch?v=tydFJS8n_5o</div>
+              <div class="fvid-lbl" id="jv-lbl">Campus Security Interview — Jake Simone<br>Room 114 · Admin Building · Sept 2023</div>
             </div>
           </div>
         </div>
@@ -474,7 +474,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
     </div>
   </div>
   <div class="choices">
-    <div class="ch-label">Tim's response (Use this Node only for scene 9B)</div>
+    <div class="ch-label">Tim's response</div>
     <button class="ch-btn" onclick="go('s-act3-dig')">Tim can't honor that — he needs to know everything (switch to Path A)</button>
     <button class="ch-btn" onclick="go('s-end-silence')">Tim honors Jake's request and stays silent</button>
   </div>
@@ -519,7 +519,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
           <div class="fvid">
             <div class="fvid-bg" id="nv-bg" style="background:linear-gradient(135deg,#1a0a0a,#3d1515);">
               <div class="fvid-play">▶</div>
-              <div class="fvid-lbl" id="nv-lbl">WBNG News 12 — Copy this link to access video- https://www.youtube.com/watch?v=bHnBW0rMSks</div>
+              <div class="fvid-lbl" id="nv-lbl">WBNG News 12 — "Cold Case Reopened: SUNY Student Comes Forward<br>with New Information in 2023 Otsego County Shooting"</div>
             </div>
           </div>
         </div>
@@ -578,6 +578,21 @@ function persist(key, val) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(all)); } catch(e) {}
 }
 
+function makeVideoBox(url, lbl) {
+  // Convert embed URL to regular watch URL
+  const watchUrl = url.replace('youtube.com/embed/', 'youtube.com/watch?v=').replace('youtu.be/', 'youtube.com/watch?v=');
+  const labelHtml = (lbl || '').replace(/\n/g, '<br>');
+  return `<div style="background:#0a0a0f;border:1px solid #2a2a3a;border-left:3px solid #e74c3c;padding:18px 22px;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#e74c3c;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;">▶ Video</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#e8e4d8;line-height:1.6;margin-bottom:14px;">${labelHtml}</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8a8478;margin-bottom:8px;letter-spacing:.05em;">Copy and paste this link into a new tab to watch:</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <input readonly value="${watchUrl}" onclick="this.select();" style="flex:1;min-width:200px;background:#1a1a25;border:1px solid #2a2a3a;color:#c8a45a;font-family:'IBM Plex Mono',monospace;font-size:12px;padding:8px 10px;cursor:text;">
+      <button onclick="navigator.clipboard.writeText('${watchUrl}').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',2000)})" style="background:transparent;border:1px solid #c8a45a;color:#c8a45a;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:8px 16px;cursor:pointer;white-space:nowrap;">Copy Link</button>
+    </div>
+  </div>`;
+}
+
 // ── Apply saved data to the DOM on page load ──
 function applyAllSaved() {
   const all = loadAll();
@@ -609,7 +624,7 @@ function applyAllSaved() {
   if (all.jv) {
     const display = document.getElementById('jv-display');
     if (all.jv.url) {
-      display.innerHTML = '<div class="vid-container"><iframe src="' + all.jv.url + '" allowfullscreen></iframe></div>';
+      display.innerHTML = makeVideoBox(all.jv.url, all.jv.lbl);
       document.getElementById('jv-url').value = all.jv.url;
     } else if (all.jv.lbl) {
       const lblEl = document.getElementById('jv-lbl');
@@ -622,7 +637,7 @@ function applyAllSaved() {
   if (all.nv) {
     const display = document.getElementById('nv-display');
     if (all.nv.url) {
-      display.innerHTML = '<div class="vid-container"><iframe src="' + all.nv.url + '" allowfullscreen></iframe></div>';
+      display.innerHTML = makeVideoBox(all.nv.url, all.nv.lbl);
       document.getElementById('nv-url').value = all.nv.url;
     } else if (all.nv.lbl) {
       const lblEl = document.getElementById('nv-lbl');
@@ -684,7 +699,7 @@ function saveEdit(key){
     const lbl = document.getElementById('jv-lbl-input').value;
     const display = document.getElementById('jv-display');
     if(url){
-      display.innerHTML='<div class="vid-container"><iframe src="'+url+'" allowfullscreen></iframe></div>';
+      display.innerHTML = makeVideoBox(url, lbl);
     } else {
       const lblEl = document.getElementById('jv-lbl');
       if(lblEl) lblEl.innerHTML = lbl.replace(/\n/g,'<br>');
@@ -696,7 +711,7 @@ function saveEdit(key){
     const lbl = document.getElementById('nv-lbl-input').value;
     const display = document.getElementById('nv-display');
     if(url){
-      display.innerHTML='<div class="vid-container"><iframe src="'+url+'" allowfullscreen></iframe></div>';
+      display.innerHTML = makeVideoBox(url, lbl);
     } else {
       const lblEl = document.getElementById('nv-lbl');
       if(lblEl) lblEl.innerHTML = lbl.replace(/\n/g,'<br>');

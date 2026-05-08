@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<!-- saved from url=(0067)file:///Users/jacksonforsberg/Downloads/college_tales_new_node.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
 :root{--bg:#0a0a0f;--sur:#111118;--sur2:#1a1a25;--brd:#2a2a3a;--acc:#c8a45a;--acc2:#7a5c9e;--dan:#c0392b;--txt:#e8e4d8;--muted:#8a8478;--dim:#555248;}
@@ -123,7 +123,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
 </head>
 <body>
 
-<div class="progress-bar"><div class="progress-fill" id="pfill" style="width: 0%;"></div></div>
+<div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
 
 <div id="app">
 
@@ -135,7 +135,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
     <div class="cover-rule"></div>
     <div class="cover-desc">One family. Three students. A truth buried under years of silence — until now.</div>
     <div class="cover-meta">SUNY Oneonta · Three Acts · Multiple Paths · One Truth<br>Forsberg · Friedrich · Rosenzweig · Piano · Ventura</div>
-    <button class="start-btn" onclick="go(&#39;s-prologue&#39;)">Begin the Story →</button>
+    <button class="start-btn" onclick="go('s-prologue')">Begin the Story →</button>
   </div>
 </div>
 
@@ -154,7 +154,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
   </div>
   <div class="choices">
     <div class="ch-label">Continue</div>
-    <button class="ch-btn" onclick="go(&#39;s-act1-campus&#39;)">Follow Jonah to SUNY Oneonta →</button>
+    <button class="ch-btn" onclick="go('s-act1-campus')">Follow Jonah to SUNY Oneonta →</button>
   </div>
 </div>
 
@@ -170,12 +170,12 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
 
       <div class="media" id="media-voicemail">
         <div class="media-tag aud">Audio — Jonah's Voicemail to His Mom</div>
-        <button class="edit-toggle" id="edit-vm-btn" onclick="toggleEdit(&#39;vm&#39;)">✎ Edit This Slot</button>
+        <button class="edit-toggle" id="edit-vm-btn" onclick="toggleEdit('vm')">✎ Edit This Slot</button>
         <div id="vm-display">
           <div class="player">
             <button class="playbtn">▶</button>
             <div class="track">
-              <div class="track-name" id="vm-title-disp">voicemail_oct14.m41</div>
+              <div class="track-name" id="vm-title-disp">voicemail_oct14.m4a</div>
               <div class="track-sub" id="vm-sub-disp">Jonah Johnson · 2:34</div>
               <div class="pbar"><div class="pfill" style="width:35%"></div></div>
             </div>
@@ -189,7 +189,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
           <input class="edit-field-url" id="vm-sub" value="Jonah Johnson · 2:34" placeholder="Speaker · Duration...">
           <div class="edit-field-label" style="margin-top:10px;">Transcript / Description</div>
           <textarea class="edit-field" id="vm-transcript" rows="4">[Transcript] "Hey Mom, don't worry about calling back tonight — I know you're at your second shift. I looked at the spring semester bill. It's not going to work the way things are right now. I'm going to figure something out. I always do. Love you."</textarea>
-          <button class="edit-save" onclick="saveEdit(&#39;vm&#39;)">Save ✓</button>
+          <button class="edit-save" onclick="saveEdit('vm')">Save ✓</button>
         </div>
       </div>
 
@@ -198,7 +198,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
   </div>
   <div class="choices">
     <div class="ch-label">Continue</div>
-    <button class="ch-btn" onclick="go(&#39;s-act1-marcus&#39;)">See how Jonah gets pulled deeper →</button>
+    <button class="ch-btn" onclick="go('s-act1-marcus')">See how Jonah gets pulled deeper →</button>
   </div>
 </div>
 
@@ -218,7 +218,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
   </div>
   <div class="choices">
     <div class="ch-label">Continue</div>
-    <button class="ch-btn" onclick="go(&#39;s-act1-shooting&#39;)">The night everything changes →</button>
+    <button class="ch-btn" onclick="go('s-act1-shooting')">The night everything changes →</button>
   </div>
 </div>
 
@@ -234,7 +234,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
 
       <div class="media" id="media-tweet">
         <div class="media-tag soc">Social Media — Oneonta Campus Watch</div>
-        <button class="edit-toggle" id="edit-tw-btn" onclick="toggleEdit(&#39;tw&#39;)">✎ Edit This Slot</button>
+        <button class="edit-toggle" id="edit-tw-btn" onclick="toggleEdit('tw')">✎ Edit This Slot</button>
         <div id="tw-display">
           <div class="tweet">
             <div class="tweet-hdr"><div class="tweet-av">CW</div><div><div class="tweet-name" id="tw-name-disp">Oneonta Campus Watch</div><div class="tweet-handle" id="tw-handle-disp">@OneonaCampusWatch</div></div></div>
@@ -251,7 +251,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
           <textarea class="edit-field" id="tw-body" rows="4">BREAKING: Otsego County Sheriff's Office investigating a shooting incident off Route 28. One victim. No suspects in custody. Campus Police urging students to stay on campus until further notice. Stay safe out there. #SUNY #Oneonta #StaySafe</textarea>
           <div class="edit-field-label" style="margin-top:8px;">Timestamp / Views</div>
           <input class="edit-field-url" id="tw-time" value="Nov 22 · 11:47 PM · 2,341 views" placeholder="Date · time · views...">
-          <button class="edit-save" onclick="saveEdit(&#39;tw&#39;)">Save ✓</button>
+          <button class="edit-save" onclick="saveEdit('tw')">Save ✓</button>
         </div>
       </div>
 
@@ -260,7 +260,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
   </div>
   <div class="choices">
     <div class="ch-label">Continue to Act II</div>
-    <button class="ch-btn" onclick="go(&#39;s-act2-return&#39;)">One year passes — Jake returns for sophomore year →</button>
+    <button class="ch-btn" onclick="go('s-act2-return')">One year passes — Jake returns for sophomore year →</button>
   </div>
 </div>
 
@@ -281,7 +281,7 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
   </div>
   <div class="choices">
     <div class="ch-label">Continue</div>
-    <button class="ch-btn" onclick="go(&#39;s-act2-security&#39;)">Jake goes to campus security →</button>
+    <button class="ch-btn" onclick="go('s-act2-security')">Jake goes to campus security →</button>
   </div>
 </div>
 
@@ -296,12 +296,12 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
 
       <div class="media" id="media-jake-vid">
         <div class="media-tag vid">Video — Jake's Campus Security Interview</div>
-        <button class="edit-toggle" id="edit-jv-btn" onclick="toggleEdit(&#39;jv&#39;)">✎ Edit This Slot</button>
+        <button class="edit-toggle" id="edit-jv-btn" onclick="toggleEdit('jv')">✎ Edit This Slot</button>
         <div id="jv-display">
           <div class="fvid">
             <div class="fvid-bg" id="jv-bg" style="background:linear-gradient(135deg,#1a1a2e,#0f3460);">
               <div class="fvid-play">▶</div>
-              <div class="fvid-lbl" id="jv-lbl">Campus Security Interview — Jake SimoneRoom 114 · Admin Building · Sept 2023C- Copy this link to access interview- </div>
+              <div class="fvid-lbl" id="jv-lbl">Campus Security Interview — Jake Simone<br>Room 114 · Admin Building · Sept 2023</div>
             </div>
           </div>
         </div>
@@ -309,9 +309,8 @@ body{background:var(--bg);color:var(--txt);font-family:'Crimson Pro',Georgia,ser
           <div class="edit-field-label">Paste a YouTube embed URL (e.g. https://www.youtube.com/embed/VIDEO_ID) or leave blank for placeholder</div>
           <input class="edit-field-url" id="jv-url" value="" placeholder="https://www.youtube.com/embed/...">
           <div class="edit-field-label" style="margin-top:8px;">Placeholder Label (shown if no URL)</div>
-          <input class="edit-field-url" id="jv-lbl-input" value="Campus Security Interview — Jake Simone
-Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
-          <button class="edit-save" onclick="saveEdit(&#39;jv&#39;)">Save ✓</button>
+          <input class="edit-field-url" id="jv-lbl-input" value="Campus Security Interview — Jake Simone&#10;Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
+          <button class="edit-save" onclick="saveEdit('jv')">Save ✓</button>
         </div>
       </div>
 
@@ -322,8 +321,8 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
   </div>
   <div class="choices">
     <div class="ch-label">NODE 2 — What does Jake do?</div>
-    <button class="ch-btn" onclick="go(&#39;s-act2-confront&#39;)">A) Jake tries to meet with Marcus Webb directly — end it face to face</button>
-    <button class="ch-btn" onclick="go(&#39;s-act2-gone&#39;)">B) Jake quietly packs a bag and disappears before it gets worse</button>
+    <button class="ch-btn" onclick="go('s-act2-confront')">A) Jake tries to meet with Marcus Webb directly — end it face to face</button>
+    <button class="ch-btn" onclick="go('s-act2-gone')">B) Jake quietly packs a bag and disappears before it gets worse</button>
   </div>
 </div>
 
@@ -347,7 +346,7 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
   </div>
   <div class="choices">
     <div class="ch-label">Continue</div>
-    <button class="ch-btn" onclick="go(&#39;s-act2-gone&#39;)">Jake disappears from Oneonta →</button>
+    <button class="ch-btn" onclick="go('s-act2-gone')">Jake disappears from Oneonta →</button>
   </div>
 </div>
 
@@ -366,7 +365,7 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
   </div>
   <div class="choices">
     <div class="ch-label">Continue to Act III</div>
-    <button class="ch-btn" onclick="go(&#39;s-act3-arrives&#39;)">Four years later — Tim Simone arrives at SUNY Oneonta →</button>
+    <button class="ch-btn" onclick="go('s-act3-arrives')">Four years later — Tim Simone arrives at SUNY Oneonta →</button>
   </div>
 </div>
 
@@ -388,8 +387,8 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
   </div>
   <div class="choices">
     <div class="ch-label">What does Tim do?</div>
-    <button class="ch-btn" onclick="go(&#39;s-act3-dig&#39;)">A) Tim decides to dig deeper — he needs to know the truth about his brother</button>
-    <button class="ch-btn" onclick="go(&#39;s-act3-avoid&#39;)">B) Tim tries to let it go — some things are better left alone</button>
+    <button class="ch-btn" onclick="go('s-act3-dig')">A) Tim decides to dig deeper — he needs to know the truth about his brother</button>
+    <button class="ch-btn" onclick="go('s-act3-avoid')">B) Tim tries to let it go — some things are better left alone</button>
   </div>
 </div>
 
@@ -404,9 +403,9 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
 
       <div class="media" id="media-notion">
         <div class="media-tag soc">Social Media / Research — Tim's Private Notes (Notion)</div>
-        <button class="edit-toggle" id="edit-nt-btn" onclick="toggleEdit(&#39;nt&#39;)">✎ Edit This Slot</button>
+        <button class="edit-toggle" id="edit-nt-btn" onclick="toggleEdit('nt')">✎ Edit This Slot</button>
         <div id="nt-display">
-          <div class="tweet" style="background:#191919;font-family:&#39;IBM Plex Mono&#39;,monospace;">
+          <div class="tweet" style="background:#191919;font-family:'IBM Plex Mono',monospace;">
             <div style="color:#888;font-size:11px;margin-bottom:10px;letter-spacing:.1em;">NOTION · Tim's Research · Private Page</div>
             <div id="nt-body-disp" style="color:#fff;font-size:13px;line-height:1.9;">
               <strong style="color:#c8a45a;">JONAH JOHNSON</strong> — arrested Nov 2023. Drug possession + distribution. Withdrew from school. Currently serving time.<br><br>
@@ -418,8 +417,8 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
         </div>
         <div id="nt-edit" style="display:none;margin-top:12px;">
           <div class="edit-field-label">Research Notes Content (HTML or plain text)</div>
-          <textarea class="edit-field" id="nt-body" rows="8">&lt;strong style="color:#c8a45a;"&gt;JONAH JOHNSON&lt;/strong&gt; — arrested Nov 2023. Drug possession + distribution. Withdrew from school. Currently serving time.&lt;br&gt;&lt;br&gt;&lt;strong style="color:#c8a45a;"&gt;JAKE'S NAME&lt;/strong&gt; — used on delivery paperwork without his knowledge. Campus security confirmed: Jake had no involvement.&lt;br&gt;&lt;br&gt;&lt;strong style="color:#7a5c9e;"&gt;THE SHOOTING&lt;/strong&gt; — Route 28. Nov 22nd. One fatality. Connected to Marcus Webb's network. Webb never charged??&lt;br&gt;&lt;br&gt;&lt;em style="color:#888;"&gt;Question: Did Jake know about the shooting? Did he leave because of threats — or because he knew more than he let on?&lt;/em&gt;</textarea>
-          <button class="edit-save" onclick="saveEdit(&#39;nt&#39;)">Save ✓</button>
+          <textarea class="edit-field" id="nt-body" rows="8"><strong style="color:#c8a45a;">JONAH JOHNSON</strong> — arrested Nov 2023. Drug possession + distribution. Withdrew from school. Currently serving time.<br><br><strong style="color:#c8a45a;">JAKE'S NAME</strong> — used on delivery paperwork without his knowledge. Campus security confirmed: Jake had no involvement.<br><br><strong style="color:#7a5c9e;">THE SHOOTING</strong> — Route 28. Nov 22nd. One fatality. Connected to Marcus Webb's network. Webb never charged??<br><br><em style="color:#888;">Question: Did Jake know about the shooting? Did he leave because of threats — or because he knew more than he let on?</em></textarea>
+          <button class="edit-save" onclick="saveEdit('nt')">Save ✓</button>
         </div>
       </div>
 
@@ -430,7 +429,7 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
   </div>
   <div class="choices">
     <div class="ch-label">Continue</div>
-    <button class="ch-btn" onclick="go(&#39;s-act3-phone-a&#39;)">Tim calls his brother →</button>
+    <button class="ch-btn" onclick="go('s-act3-phone-a')">Tim calls his brother →</button>
   </div>
 </div>
 
@@ -452,8 +451,8 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
   </div>
   <div class="choices">
     <div class="ch-label">Tim's decision — the full truth is now in his hands</div>
-    <button class="ch-btn" onclick="go(&#39;s-end-expose&#39;)">A) Tim reports everything — he brings it to the police and campus authorities</button>
-    <button class="ch-btn" onclick="go(&#39;s-end-silence&#39;)">B) Tim keeps it to himself — he honors the cost of Jake's silence</button>
+    <button class="ch-btn" onclick="go('s-end-expose')">A) Tim reports everything — he brings it to the police and campus authorities</button>
+    <button class="ch-btn" onclick="go('s-end-silence')">B) Tim keeps it to himself — he honors the cost of Jake's silence</button>
   </div>
 </div>
 
@@ -468,16 +467,16 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
       <p>He lasted four days.</p>
       <p>On the fifth day, a lab partner in Biology mentioned hearing the Simone name in connection with something that had happened years ago. Then a resident advisor said the same thing, casually, like it was a campus legend everyone knew. By the end of the week it was undeniable: whether Tim asked questions or not, the story was going to find him.</p>
       <div class="dlg"><div class="dlg-spk">Tim (to himself)</div>"You can't outrun something that happened in every hallway you walk through."</div>
-      <p>He called Jake that night. Jake picked up on the third ring and went silent when Tim said the words "SUNY Oneonta."</p></div>
+      <p>He called Jake that night. Jake picked up on the third ring and went silent when Tim said the words "SUNY Oneonta."</div>
       <div class="dlg"><div class="dlg-spk">Jake</div>"You're there. Of course you're there. Tim — don't dig into this. I'm serious. It's been years, but some things don't just go away."</div>
       <div class="dlg"><div class="dlg-spk">Tim</div>"What happened, Jake? Just tell me."</div>
       <div class="dlg"><div class="dlg-spk">Jake</div>"Someone died. That's what happened. I ran so you would never have to think about it. Please — let it stay buried."</div>
     </div>
   </div>
   <div class="choices">
-    <div class="ch-label">Tim's response (Use at Scene 9B) </div>
-    <button class="ch-btn" onclick="go(&#39;s-act3-dig&#39;)">Tim can't honor that — he needs to know everything (switch to Path A)</button>
-    <button class="ch-btn" onclick="go(&#39;s-end-silence&#39;)">Tim honors Jake's request and stays silent</button>
+    <div class="ch-label">Tim's response (Only use thise node/button for scene 9B) </div>
+    <button class="ch-btn" onclick="go('s-act3-dig')">Tim can't honor that — he needs to know everything (switch to Path A)</button>
+    <button class="ch-btn" onclick="go('s-end-silence')">Tim honors Jake's request and stays silent</button>
   </div>
 </div>
 
@@ -499,8 +498,8 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
     <div class="ending-icon">🌑</div>
     <div class="ending-title">Ending A: The Weight of Silence</div>
     <div class="ending-body">Tim protected his brother's secret — and inherited his burden. The truth doesn't disappear. It just becomes yours to carry. Some choices keep you safe. Some choices only delay the cost.</div>
-    <button class="restart-btn" onclick="go(&#39;s-cover&#39;)">↩ Start Over</button>
-    <button class="restart-btn alt" onclick="go(&#39;s-act3-arrives&#39;)">↩ Try a Different Path</button>
+    <button class="restart-btn" onclick="go('s-cover')">↩ Start Over</button>
+    <button class="restart-btn alt" onclick="go('s-act3-arrives')">↩ Try a Different Path</button>
   </div>
 </div>
 
@@ -515,12 +514,12 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
 
       <div class="media" id="media-news-vid">
         <div class="media-tag vid">Video — Local News Coverage</div>
-        <button class="edit-toggle" id="edit-nv-btn" onclick="toggleEdit(&#39;nv&#39;)">✎ Edit This Slot</button>
+        <button class="edit-toggle" id="edit-nv-btn" onclick="toggleEdit('nv')">✎ Edit This Slot</button>
         <div id="nv-display">
           <div class="fvid">
             <div class="fvid-bg" id="nv-bg" style="background:linear-gradient(135deg,#1a0a0a,#3d1515);">
               <div class="fvid-play">▶</div>
-              <div class="fvid-lbl" id="nv-lbl">Copy this link to access video-  https://www.youtube.com/watch?v=bHnBW0rMSks</div>
+              <div class="fvid-lbl" id="nv-lbl">WBNG News 12 — "Cold Case Reopened: SUNY Student Comes Forward<br>with New Information in 2023 Otsego County Shooting"</div>
             </div>
           </div>
         </div>
@@ -528,9 +527,8 @@ Room 114 · Admin Building · Sept 2023" placeholder="Video label...">
           <div class="edit-field-label">Paste a YouTube embed URL (e.g. https://www.youtube.com/embed/VIDEO_ID) or leave blank for placeholder</div>
           <input class="edit-field-url" id="nv-url" value="" placeholder="https://www.youtube.com/embed/...">
           <div class="edit-field-label" style="margin-top:8px;">Placeholder Label (shown if no URL)</div>
-          <input class="edit-field-url" id="nv-lbl-input" value="WBNG News 12 — Cold Case Reopened: SUNY Student Comes Forward
-with New Information in 2023 Otsego County Shooting" placeholder="Video label...">
-          <button class="edit-save" onclick="saveEdit(&#39;nv&#39;)">Save ✓</button>
+          <input class="edit-field-url" id="nv-lbl-input" value="WBNG News 12 — Cold Case Reopened: SUNY Student Comes Forward&#10;with New Information in 2023 Otsego County Shooting" placeholder="Video label...">
+          <button class="edit-save" onclick="saveEdit('nv')">Save ✓</button>
         </div>
       </div>
 
@@ -545,12 +543,12 @@ with New Information in 2023 Otsego County Shooting" placeholder="Video label...
     <div class="ending-icon">🌤</div>
     <div class="ending-title">Ending B: The Truth Comes Out</div>
     <div class="ending-body">Tim chose transparency over safety — and gave everyone involved a chance at something like resolution. Justice came slowly and incompletely. But it came. Sometimes the hardest path is the one that leads somewhere real.</div>
-    <button class="restart-btn" onclick="go(&#39;s-cover&#39;)">↩ Start Over</button>
-    <button class="restart-btn alt" onclick="go(&#39;s-act3-arrives&#39;)">↩ Try a Different Path</button>
+    <button class="restart-btn" onclick="go('s-cover')">↩ Start Over</button>
+    <button class="restart-btn alt" onclick="go('s-act3-arrives')">↩ Try a Different Path</button>
   </div>
 </div>
 
-<!-- /app -->
+</div><!-- /app -->
 
 <div class="global-edit-bar">
   <span class="global-label">✎ Click "Edit This Slot" on any media block — your changes save automatically and persist after refresh</span>
@@ -716,6 +714,5 @@ function saveEdit(key){
 // ── Run on page load ──
 document.addEventListener('DOMContentLoaded', applyAllSaved);
 </script>
-
-
-</body></html>
+</body>
+</html>
